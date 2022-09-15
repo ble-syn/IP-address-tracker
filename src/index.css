@@ -1,13 +1,113 @@
-body {
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@700&display=swap');
+*{
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  box-sizing: border-box;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+section {
+  font-family: 'Rubik', sans-serif;
+  position: relative;
 }
+.ip-bg{
+  background: url(../src/images/pattern-bg.png);
+  display: grid;
+  place-items: center;
+  text-align: center;
+  padding: 40px;
+  position: relative;
+}
+.heading {
+  color: #fff;
+}
+.search-bar {
+  width: 40%;
+  margin: 50px auto;
+  display: flex;
+  
+}
+.search-bar-input, .search-bar-btn{
+  border: none;
+  margin-right: 0;
+  padding: 15px;
+  cursor: pointer;
+}
+.search-bar-input {
+  width: 90%;
+  border-radius: 15px 0 0 15px;
+
+}
+.search-bar-btn{
+  border-radius: 0px 15px 15px 0; 
+  color: #fff;
+  background-color: #000;
+}
+.ip-details-card {
+  position: relative;
+  bottom: 50px;
+  display: flex;
+  background-color: #fff;
+  border-radius: 15px;
+  margin: 0 12%;
+  padding: 30px 10px;
+}
+.ip-details-card > div {
+  width: 100%;
+  margin: 0 5% 0 2%;
+  letter-spacing: 1.3px;
+}
+.ip-details-para{
+  color: hsl(0, 0%, 59%);
+  font-size: 12px;
+  margin-bottom: 10px;
+}
+hr {
+  margin: 10px 0;
+  border: none;
+  border-right: 1px solid hsl(0, 0%, 59%);
+}
+.ip-details-card h2  {
+  font-size: larger;
+  font-weight: 400;
+  color: hsl(0, 0%, 17%);
+}
+
+@media (max-width: 969px){
+  .search-bar {
+    width: 90%;
+    
+  }
+  .ip-details-card {
+    margin: 2%;
+    padding: 25px 10px;
+    justify-content: space-around;
+    
+  }
+  .ip-details-card > div {
+    width: 100%;
+    margin: 2%;
+  }
+}
+
+
+@media (max-width: 700px){
+  .search-bar{
+    width: 100%;
+  }
+  .search-bar-input {
+    width: 100%;
+  }
+  hr {
+    display: none;
+  }
+  .ip-details-card {
+    text-align: center;
+    flex-flow:column;
+    margin: 0 10%;
+
+  }
+  .ip-details-card > div {
+    width: 100%;
+    margin: 3% 0;
+  }
+}
+
