@@ -45,7 +45,7 @@ body{
 }
 .ip-details-card {
   position: absolute;
-  top: 21%;
+  top: 25%;
   left: 15%;
   width: 70%;
   display: flex;
@@ -55,7 +55,7 @@ body{
   z-index: 1000;
 
   padding: 30px 10px;
- 
+  z-index: 2;
 }
 .ip-details-card > div {
   width: 100%;

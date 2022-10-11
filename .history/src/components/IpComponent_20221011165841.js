@@ -1,7 +1,6 @@
-import React from 'react'
 import {useState} from "react"
 import {ReactComponent as Arrow} from '../images/icon-arrow.svg'
-import { MapContainer, Marker, Popup, TileLayer } from "react-leaflet";
+import {ReactComponent as Location} from '../images/icon-location.svg'
 
 
 
@@ -13,25 +12,27 @@ function IpComponent (){
     const [Isp, setIsp] = useState("SpaceX Starlink")
     const [lat, setLat] = useState("51.505");
     const [lng, setLng] = useState("-0.09");
+    const [loading, setLoading] = useState(false)
     
-
-
     const getIpInfo = async(e) => {
         e.preventDefault();
-        let url = "https://geo.ipify.org/api/v1";
-        let api_key = process.env.REACT_APP_API_KEY;
-        let ip = IpAddress
-        let response = await fetch(`${url}?apiKey=${api_key}&ipAddress=${ip}`);
-        let data = await response.json()
+
+        let url = "https://geo.ipify.org/api/v2";
+        let api_Key = process.env.REACT_APP_API_KEY;
+        
+        let fetchData =  await fetch(`${url}?apiKey=${api_Key}&ipAddress=${IpAddress}`)
+        let data = await fetchData.json
         console.log(data)
        
+
+
+
+        setCountry(data.location.country); 
         setLocation(data.location.city);
         setTimezone(data.location.timezone);
         setIsp(data.isp);
-        setCountry(data.location.country); 
         setLat(data.location.lat);
-        setLng(data.location.lng); 
-        
+        setLng(data.location.lng);
 
     }
 
@@ -64,7 +65,7 @@ function IpComponent (){
             <hr />
             <div>
                 <p className="ip-details-para">LOCATION</p>
-                <h2>{country} {location}</h2>
+                <h2>{location}</h2>
             </div>
             <hr />
             <div>
@@ -80,21 +81,8 @@ function IpComponent (){
             
 
         </div>
-    <section id="map" className="mapsection">
-        <MapContainer
-          style={{ height: "100%", width: "100%" }}
-          center={[lat, lng]}
-          zoom={13}
-          scrollWheelZoom={false}
-        >
-          <TileLayer
-            attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-            url="https://{s}.tile.openstreetmap.de/tiles/osmde/{z}/{x}/{y}.png"
-          />
-          <Marker position={[lat, lng]}>
-            <Popup>{location}</Popup>
-          </Marker>
-        </MapContainer>
+    <section className="mapsection">
+        <Location />
     </section>
       
     </>

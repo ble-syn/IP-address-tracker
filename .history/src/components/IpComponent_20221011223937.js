@@ -1,6 +1,7 @@
 import React from 'react'
 import {useState} from "react"
 import {ReactComponent as Arrow} from '../images/icon-arrow.svg'
+// import {ReactComponent as Location} from '../images/icon-location.svg'
 import { MapContainer, Marker, Popup, TileLayer } from "react-leaflet";
 
 

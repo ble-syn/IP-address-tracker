@@ -1,6 +1,7 @@
 import React from 'react'
 import {useState} from "react"
 import {ReactComponent as Arrow} from '../images/icon-arrow.svg'
+import {ReactComponent as Location} from '../images/icon-location.svg'
 import { MapContainer, Marker, Popup, TileLayer } from "react-leaflet";
 
 
@@ -81,20 +82,7 @@ function IpComponent (){
 
         </div>
     <section id="map" className="mapsection">
-        <MapContainer
-          style={{ height: "100%", width: "100%" }}
-          center={[lat, lng]}
-          zoom={13}
-          scrollWheelZoom={false}
-        >
-          <TileLayer
-            attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-            url="https://{s}.tile.openstreetmap.de/tiles/osmde/{z}/{x}/{y}.png"
-          />
-          <Marker position={[lat, lng]}>
-            <Popup>{location}</Popup>
-          </Marker>
-        </MapContainer>
+        <Location />
     </section>
       
     </>

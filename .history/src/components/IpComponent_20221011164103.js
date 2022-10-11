@@ -1,7 +1,6 @@
-import React from 'react'
 import {useState} from "react"
 import {ReactComponent as Arrow} from '../images/icon-arrow.svg'
-import { MapContainer, Marker, Popup, TileLayer } from "react-leaflet";
+import {ReactComponent as Location} from '../images/icon-location.svg'
 
 
 
@@ -13,25 +12,17 @@ function IpComponent (){
     const [Isp, setIsp] = useState("SpaceX Starlink")
     const [lat, setLat] = useState("51.505");
     const [lng, setLng] = useState("-0.09");
+    const [loading, setLoading] = useState(false)
     
-
-
     const getIpInfo = async(e) => {
         e.preventDefault();
-        let url = "https://geo.ipify.org/api/v1";
-        let api_key = process.env.REACT_APP_API_KEY;
-        let ip = IpAddress
-        let response = await fetch(`${url}?apiKey=${api_key}&ipAddress=${ip}`);
-        let data = await response.json()
+
+        let url = "https://geo.ipify.org/api/v2";
+        let api_Key = process.env.REACT_APP_API_KEY;
+
+        const fetchData =  await fetch(`${url}?apiKey=${api_Key}&ipAddress=${IpAddress}`)
+        const data = await fetchData.json
         console.log(data)
-       
-        setLocation(data.location.city);
-        setTimezone(data.location.timezone);
-        setIsp(data.isp);
-        setCountry(data.location.country); 
-        setLat(data.location.lat);
-        setLng(data.location.lng); 
-        
 
     }
 
@@ -40,14 +31,20 @@ function IpComponent (){
         setIpAddress(event.target.value)   
     }
 
+
     
+
+    const handleSubmit = (event) => {
+        event.preventDefault()
+        getIpInfo()
+    }
     return (
     <>
     <section className="firstsection">
         <div className="ip-bg">
             <h1 className="heading">IP ADDRESS TRACKER</h1>
 
-            <form onSubmit={getIpInfo}  className="search-bar" >
+            <form onSubmit={handleSubmit}  className="search-bar" >
                 <input onChange={getIp} className="search-bar-input" type="text" placeholder="Search for any IP address or domain" />
                 <button className="search-bar-btn"> <Arrow /> </button>
             </form>
@@ -64,7 +61,7 @@ function IpComponent (){
             <hr />
             <div>
                 <p className="ip-details-para">LOCATION</p>
-                <h2>{country} {location}</h2>
+                <h2>{location}</h2>
             </div>
             <hr />
             <div>
@@ -80,21 +77,8 @@ function IpComponent (){
             
 
         </div>
-    <section id="map" className="mapsection">
-        <MapContainer
-          style={{ height: "100%", width: "100%" }}
-          center={[lat, lng]}
-          zoom={13}
-          scrollWheelZoom={false}
-        >
-          <TileLayer
-            attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-            url="https://{s}.tile.openstreetmap.de/tiles/osmde/{z}/{x}/{y}.png"
-          />
-          <Marker position={[lat, lng]}>
-            <Popup>{location}</Popup>
-          </Marker>
-        </MapContainer>
+    <section className="mapsection">
+        <Location />
     </section>
       
     </>

@@ -6,7 +6,7 @@ import { MapContainer, Marker, Popup, TileLayer } from "react-leaflet";
 
 
 function IpComponent (){
-    const [IpAddress, setIpAddress] = useState("192.212.174.101")
+    const [IpAddress, setIpAddress] = useState("102.89.47.198")
     const [location, setLocation] = useState("Brooklyn, NY 10001")
     const [country, setCountry] = useState("USA")
     const [timezone, setTimezone] = useState("UTC-05:00")

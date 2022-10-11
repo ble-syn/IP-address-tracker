@@ -45,17 +45,16 @@ body{
 }
 .ip-details-card {
   position: absolute;
-  top: 21%;
+  top: 25%;
   left: 15%;
   width: 70%;
   display: flex;
   background-color: #fff;
   border-radius: 15px;
   box-shadow: 0px 3px 5px rgba(0, 0, 0, .5);
-  z-index: 1000;
 
   padding: 30px 10px;
- 
+  z-index: 2;
 }
 .ip-details-card > div {
   width: 100%;
@@ -94,7 +93,11 @@ hr {
     margin: 2%;
   }
 }
-
+.mapsection{
+  height: 70vh;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
 /* MAP stylying */
 .mapsection{ 
   width: 100%;

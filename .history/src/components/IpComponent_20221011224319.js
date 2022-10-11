@@ -82,7 +82,6 @@ function IpComponent (){
         </div>
     <section id="map" className="mapsection">
         <MapContainer
-          style={{ height: "100%", width: "100%" }}
           center={[lat, lng]}
           zoom={13}
           scrollWheelZoom={false}

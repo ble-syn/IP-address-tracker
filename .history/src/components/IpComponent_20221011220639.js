@@ -1,7 +1,12 @@
-import React from 'react'
 import {useState} from "react"
 import {ReactComponent as Arrow} from '../images/icon-arrow.svg'
-import { MapContainer, Marker, Popup, TileLayer } from "react-leaflet";
+import {ReactComponent as Location} from '../images/icon-location.svg'
+import {
+    MapContainer,
+    TileLayer,
+    Marker,
+    Popup
+  } from 'https://cdn.esm.sh/react-leaflet'
 
 
 
@@ -29,8 +34,8 @@ function IpComponent (){
         setTimezone(data.location.timezone);
         setIsp(data.isp);
         setCountry(data.location.country); 
-        setLat(data.location.lat);
-        setLng(data.location.lng); 
+        // setLat(data.location.lat);
+        // setLng(data.location.lng); 
         
 
     }
@@ -81,20 +86,19 @@ function IpComponent (){
 
         </div>
     <section id="map" className="mapsection">
-        <MapContainer
-          style={{ height: "100%", width: "100%" }}
-          center={[lat, lng]}
-          zoom={13}
-          scrollWheelZoom={false}
-        >
-          <TileLayer
-            attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-            url="https://{s}.tile.openstreetmap.de/tiles/osmde/{z}/{x}/{y}.png"
-          />
-          <Marker position={[lat, lng]}>
-            <Popup>{location}</Popup>
-          </Marker>
-        </MapContainer>
+   
+    <MapContainer center={lat} zoom={13} scrollWheelZoom={false}>
+        <TileLayer
+        attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+        />
+        <Marker position={lng}>
+        <Popup>
+            {location}
+        </Popup>
+        </Marker>
+    </MapContainer>
+
     </section>
       
     </>

@@ -87,10 +87,10 @@ function IpComponent (){
           zoom={13}
           scrollWheelZoom={false}
         >
-          <TileLayer
+        <TileLayer
             attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
             url="https://{s}.tile.openstreetmap.de/tiles/osmde/{z}/{x}/{y}.png"
-          />
+        />
           <Marker position={[lat, lng]}>
             <Popup>{location}</Popup>
           </Marker>
