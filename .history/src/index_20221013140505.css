@@ -38,7 +38,7 @@ body{
   border-radius: 15px 0 0 15px;
 }
 .search-bar-input:focus {
-  outline: 1px solid black;
+  outline: black;
 }
 .search-bar-btn{
   border-radius: 0px 15px 15px 0; 
