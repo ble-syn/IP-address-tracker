@@ -120,8 +120,17 @@ hr {
     text-align: center;
     flex-flow:column;
     margin: 0 10%;
-    top: 18%;
-    left: 6%;
+
+    top: 21%;
+    left: 10%;
+    width: 70%;
+    display: flex;
+    background-color: #fff;
+    border-radius: 15px;
+    box-shadow: 0px 3px 5px rgba(0, 0, 0, .5);
+    z-index: 1000;
+    padding: 30px 10px;
+   
   }
   .ip-details-card > div {
     width: 100%;

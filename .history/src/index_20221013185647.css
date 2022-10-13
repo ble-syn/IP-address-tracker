@@ -120,8 +120,10 @@ hr {
     text-align: center;
     flex-flow:column;
     margin: 0 10%;
+
     top: 18%;
     left: 6%;
+   
   }
   .ip-details-card > div {
     width: 100%;
